@@ -3,9 +3,11 @@
         {
             "name": "kdta_ros2",
             "includePath": [
-                "/usr/include/**"
+                "/usr/include/**",
+                "/opt/ros/humble/include/**",
             ],
             "intelliSenseMode": "linux-gcc-x64",
+
             "compilerPath": "/usr/bin/clang",
             "cStandard": "c17",
             "cppStandard": "c++14"
