@@ -81,6 +81,9 @@
         "cinttypes": "cpp",
         "typeindex": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
-    }
+        "variant": "cpp",
+        "any": "cpp",
+        "regex": "cpp"
+    },
+    "cmake.sourceDirectory": "/home/usu0/ros2_workspace/src/ROS2_class/movetsim"
 }
