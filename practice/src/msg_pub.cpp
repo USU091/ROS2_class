@@ -4,9 +4,9 @@ MsgPublishClass::MsgPublishClass()
     : Node("MsgPub"), _i(0)
 {
     auto qos_profile = rclcpp::QoS(rclcpp::KeepLast(10));
-    _pub1 = this->create_publisher<std_msgs::msg::String>("pub1", qos_profile);
-    _pub2 = this->create_publisher<std_msgs::msg::String>("pub2", qos_profile);
-    _pub3 = this->create_publisher<std_msgs::msg::String>("pub3", qos_profile);
+    _pub1 = this->create_publisher<std_msgs::msg::String>("sub1", qos_profile);
+    _pub2 = this->create_publisher<std_msgs::msg::String>("sub2", qos_profile);
+    _pub3 = this->create_publisher<std_msgs::msg::String>("sub3", qos_profile);
     _timer = this->create_wall_timer(1s, std::bind(&MsgPublishClass::pub_msg, this));
 }
 

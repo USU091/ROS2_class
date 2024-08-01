@@ -6,7 +6,7 @@ TimeSubscriber::TimeSubscriber()
     auto qos_profile = rclcpp::QoS(rclcpp::KeepLast(10));
     _timesub = this->create_subscription<std_msgs::msg::Header>("time_topic", qos_profile, std::bind(&TimeSubscriber::subscribe_time_msg, this, std::placeholders::_1));
 
-    _msgsub = this->create_subscription<std_msgs::msg::String>("msg_topic", qos_profile, 
+    _msgsub = this->create_subscription<std_msgs::msg::String>("sub3", qos_profile, 
             std::bind(&TimeSubscriber::subscribe_msg_msg, this, std::placeholders::_1));
 }
 
