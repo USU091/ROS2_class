@@ -1,0 +1,57 @@
+cmake_minimum_required(VERSION 3.8)
+project(arithmetic)
+
+if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+  add_compile_options(-Wall -Wextra -Wpedantic)
+endif()
+
+# find dependencies
+find_package(ament_cmake REQUIRED)
+find_package(rclcpp REQUIRED)
+find_package(interface_exmpl REQUIRED)
+find_package(rclcpp_action REQUIRED)
+
+include_directories(include)
+
+#add executable
+add_executable(argument src/arithmetic/argument.cpp)
+ament_target_dependencies(argument rclcpp interface_exmpl rclcpp_action)
+
+
+add_executable(calculator src/calculator/calculator.cpp src/calculator/main.cpp) 
+ament_target_dependencies(calculator rclcpp interface_exmpl rclcpp_action)
+
+
+add_executable(operator src/arithmetic/operator.cpp ) 
+ament_target_dependencies(operator rclcpp interface_exmpl )
+
+add_executable(checker src/checker/checker.cpp src/checker/main.cpp)
+ament_target_dependencies(checker rclcpp interface_exmpl rclcpp_action)
+
+#install
+install(TARGETS
+  calculator  
+  argument
+  operator
+  checker
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(DIRECTORY
+  launch
+  param
+  DESTINATION share/${PROJECT_NAME})
+
+
+
+if(BUILD_TESTING)
+  find_package(ament_lint_auto REQUIRED)
+
+  set(ament_cmake_copyright_FOUND TRUE)
+
+  set(ament_cmake_cpplint_FOUND TRUE)
+  ament_lint_auto_find_test_dependencies()
+endif()
+
+
+ament_package()

@@ -5,6 +5,8 @@
             "includePath": [
                 "/usr/include/**",
                 "/opt/ros/humble/include/**",
+                "/home/usu0/ros2_workspace/install/interface_exmpl/include/**",
+                ""
             ],
             "intelliSenseMode": "linux-gcc-x64",
 

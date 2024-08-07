@@ -12,9 +12,10 @@ find_package(geometry_msgs REQUIRED)
 find_package(nav_msgs REQUIRED)
 find_package(turtlesim REQUIRED)
 find_package(tf2 REQUIRED)
+find_package(rclcpp_action REQUIRED)
+
 
 include_directories(include)
-
 
 
 #add executable
@@ -31,12 +32,18 @@ add_executable(moveTurtleBot2 src/moveTurtleBot2.cpp src/moveTurtleBotCpp2.cpp)
 ament_target_dependencies(moveTurtleBot2 rclcpp geometry_msgs nav_msgs tf2)
 
 
+add_executable(rotateTurtlesim src/rotateTurtlesim.cpp src/rotateTurtle.cpp)
+ament_target_dependencies(rotateTurtlesim rclcpp turtlesim rclcpp_action)
+
+
+
 #install
 install(TARGETS
   moveTurtleSim
   moveTurtleBot
   moveTurtleSim2
   moveTurtleBot2
+  rotateTurtlesim
   DESTINATION lib/${PROJECT_NAME}
 )
 
